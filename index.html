@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Onyando | Creative Visual Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent: #ff4d05; /* Energetic Orange */
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 23, 42, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+        .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+        }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin-bottom: 30px; }
+        
+        .cta-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { border: 2px solid var(--accent); color: white; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        /* Quick Services Grid */
+        .preview-section { padding: 80px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; transition: 0.3s; border: 1px solid #334155; }
+        .card:hover { border-color: var(--accent); }
+        .card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid #334155; font-size: 0.9rem; color: #64748b; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; } /* Simplified for mobile setup */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GO Designs</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <img src="headteacher.jpg" alt="George Onyando" class="profile-img">
+        <h1>George Onyando</h1>
+        <p>Premium Graphic Design, Professional Video Editing, and High-Impact Content Creation. Transforming your ideas into visual masterpieces.</p>
+        
+        <div class="cta-btns">
+            <a href="portfolio.html" class="btn btn-secondary">View My Work</a>
+            <a href="https://wa.me/254728870061" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Hire Me Now
+            </a>
+        </div>
+    </section>
+
+    <section class="preview-section">
+        <h2 style="text-align: center; margin-bottom: 50px;">Elevate Your Brand</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Graphic Design</h3>
+                <p>From stunning logos to social media flyers and branding that speaks for itself.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-film"></i>
+                <h3>Video Editing</h3>
+                <p>Bringing stories to life with cinematic transitions, color grading, and crisp audio.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-camera-retro"></i>
+                <h3>Photo Retouching</h3>
+                <p>Enhancing every detail to ensure your photos look flawless and professional.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 George Onyando. Powered by Elevation Pillar Solutions.</p>
+    </footer>
+
+</body>
+</html>
