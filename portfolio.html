@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | George Onyando Creative Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #003366; 
+            --accent-gold: #ffcc00;  
+            --bg-light: #f4f7f6;     
+            --white: #ffffff;
+            --text-dark: #1e293b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); }
+
+        /* Navigation (Same as Index for consistency) */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); text-decoration: none; }
+        .logo span { color: var(--accent-gold); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; }
+
+        /* Header Section */
+        .portfolio-header {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.9)), url('headteacher.jpg');
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 80px 8%; text-align: center;
+        }
+        .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 10px; }
+        .portfolio-header p { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto; }
+
+        /* Gallery Filters */
+        .filter-container { text-align: center; padding: 40px 0 20px; }
+        .filter-btn {
+            background: var(--white); border: 2px solid var(--primary-blue); color: var(--primary-blue);
+            padding: 10px 25px; margin: 5px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s;
+        }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary-blue); color: var(--white); }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; padding: 20px 8% 80px;
+        }
+        .portfolio-item {
+            background: var(--white); border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s; position: relative;
+        }
+        .portfolio-item:hover { transform: translateY(-10px); }
+        
+        .portfolio-img { width: 100%; height: 250px; object-fit: cover; display: block; }
+        
+        .item-info { padding: 20px; }
+        .item-info h3 { color: var(--primary-blue); margin-bottom: 5px; font-size: 1.2rem; }
+        .item-info p { font-size: 0.9rem; color: #64748b; }
+
+        /* Overlay Effect for Impressiveness */
+        .item-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 250px;
+            background: rgba(0,51,102,0.8); display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.4s;
+        }
+        .portfolio-item:hover .item-overlay { opacity: 1; }
+        .overlay-btn { color: var(--white); font-size: 1.5rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 5px; }
+
+        /* Footer Quote */
+        .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 80px 8%; }
+        .cta-footer h2 { font-size: 2.2rem; margin-bottom: 20px; }
+        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .portfolio-header h1 { font-size: 2rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">ONYANDO<span>DESIGNS</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="portfolio-header">
+        <h1>Creative Showcase</h1>
+        <p>A collection of premium branding, cinematic video projects, and high-impact graphic solutions designed for excellence.</p>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn active">All Work</button>
+        <button class="filter-btn">Logos</button>
+        <button class="filter-btn">Flyers</button>
+        <button class="filter-btn">Video Editing</button>
+    </div>
+
+    <section class="portfolio-grid">
+        <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Project</a></div>
+            <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
+            <div class="item-info">
+                <h3>Corporate Identity</h3>
+                <p>Minimalist branding for modern businesses.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Project</a></div>
+            <img src="flyer1.jpg" alt="Church Flyer" class="portfolio-img">
+            <div class="item-info">
+                <h3>Event Branding</h3>
+                <p>Vibrant flyer design for community and church events.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">Play Video</a></div>
+            <img src="video-thumb.jpg" alt="Video Project" class="portfolio-img">
+            <div class="item-info">
+                <h3>Cinematic Edit</h3>
+                <p>High-end post-production and storytelling.</p>
+            </div>
+        </div>
+
+        <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Detail</a></div>
+            <img src="photo-edit.jpg" alt="Photo Editing" class="portfolio-img">
+            <div class="item-info">
+                <h3>Professional Retouching</h3>
+                <p>Ensuring every pixel meets the highest standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-footer">
+        <h2>Ready to transform your brand?</h2>
+        <p>Let's work together to create something truly exceptional.</p>
+        <a href="https://wa.me/254728870061" class="btn-hire">Start Your Project Today</a>
+    </section>
+
+</body>
+</html>
