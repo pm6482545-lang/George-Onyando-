@@ -3,87 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>George Onyando | Creative Visual Expert</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>George Onyando | Visionary Creative & Media Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --accent: #ff4d05; /* Energetic Orange */
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f8fafc;
+            --primary-blue: #003366; 
+            --accent-gold: #ffcc00;  
+            --bg-light: #f4f7f6;     
+            --text-main: #2d3436;
+            --white: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
 
         /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
-            background: rgba(15, 23, 42, 0.95);
+            padding: 15px 8%;
+            background: var(--white);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #334155;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo { font-weight: 700; font-size: 1.5rem; color: var(--accent); }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); text-transform: uppercase; text-decoration: none; }
+        .logo span { color: var(--accent-gold); }
+
         .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: white; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-gold); }
+
+        /* Hamburger Menu Icon */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--primary-blue);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
 
         /* Hero Section */
         .hero {
+            padding: 100px 8%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #00509d 100%);
+            color: var(--white);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px;
-            background: linear-gradient(to bottom, #0f172a, #1e293b);
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 4px solid var(--accent);
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 700px; margin-bottom: 30px; }
+        .hero-text { flex: 1; min-width: 300px; padding-right: 50px; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero-text h1 span { color: var(--accent-gold); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 35px; color: #e0e0e0; font-weight: 300; }
         
-        .cta-btns { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
-        .btn { padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .btn-primary { background: var(--accent); color: white; }
-        .btn-secondary { border: 2px solid var(--accent); color: white; }
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .hero-image { flex: 1; display: flex; justify-content: center; min-width: 300px; position: relative; }
+        .profile-img {
+            width: 320px;
+            height: 320px;
+            border-radius: 30px;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
 
-        /* Quick Services Grid */
-        .preview-section { padding: 80px 5%; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--card-bg); padding: 30px; border-radius: 15px; transition: 0.3s; border: 1px solid #334155; }
-        .card:hover { border-color: var(--accent); }
-        .card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; }
+        /* Buttons */
+        .cta-btns { display: flex; gap: 20px; flex-wrap: wrap; }
+        .btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; text-align: center; display: inline-block; }
+        .btn-primary { background: var(--accent-gold); color: var(--primary-blue); box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4); }
+        .btn-secondary { border: 2px solid var(--white); color: var(--white); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid #334155; font-size: 0.9rem; color: #64748b; }
+        /* Welcome Section */
+        .welcome-msg { padding: 80px 8%; text-align: center; background: var(--white); }
+        .welcome-msg h2 { color: var(--primary-blue); font-size: 2.5rem; margin-bottom: 20px; }
+        .welcome-msg p { max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #555; }
 
+        /* Services Section */
+        .services { padding: 80px 8%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 40px; border-radius: 20px; transition: 0.4s; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 25px; }
+        .card h3 { margin-bottom: 15px; color: var(--primary-blue); font-size: 1.5rem; }
+
+        /* Footer */
+        footer { background: var(--primary-blue); color: var(--white); padding: 60px 8% 20px; text-align: center; }
+        .quote { font-style: italic; font-size: 1.4rem; color: var(--accent-gold); margin-bottom: 30px; }
+        .footer-info { margin-bottom: 30px; font-size: 1.1rem; }
+        .footer-info p { margin-bottom: 10px; }
+        .footer-info a { color: var(--white); text-decoration: none; transition: 0.3s; }
+        .footer-info a:hover { color: var(--accent-gold); }
+        .footer-info i { color: var(--accent-gold); margin-right: 8px; }
+        .copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.9rem; opacity: 0.7; }
+
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-links { display: none; } /* Simplified for mobile setup */
+            nav { padding: 15px 5%; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; }
+            
+            .hero { padding: 60px 5%; text-align: center; }
+            .hero-text { padding-right: 0; margin-bottom: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .profile-img { width: 250px; height: 250px; }
+            .cta-btns { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">GO Designs</div>
-        <ul class="nav-links">
+        <a href="index.html" class="logo">ONYANDO<span>DESIGNS</span></a>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
@@ -93,42 +157,72 @@
     </nav>
 
     <section class="hero">
-        <img src="headteacher.jpg" alt="George Onyando" class="profile-img">
-        <h1>George Onyando</h1>
-        <p>Premium Graphic Design, Professional Video Editing, and High-Impact Content Creation. Transforming your ideas into visual masterpieces.</p>
-        
-        <div class="cta-btns">
-            <a href="portfolio.html" class="btn btn-secondary">View My Work</a>
-            <a href="https://wa.me/254728870061" class="btn btn-primary">
-                <i class="fab fa-whatsapp"></i> Hire Me Now
-            </a>
+        <div class="hero-text">
+            <h1>Bringing Your <span>Imagination</span> To Life</h1>
+            <p>Expert branding, cinematic video editing, and professional content creation tailored for your success. Let's make your vision reality.</p>
+            <div class="cta-btns">
+                <a href="https://wa.me/254728870061" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="portfolio.html" class="btn btn-secondary">Explore My Portfolio</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="headteacher.jpg" alt="George Onyando" class="profile-img">
         </div>
     </section>
 
-    <section class="preview-section">
-        <h2 style="text-align: center; margin-bottom: 50px;">Elevate Your Brand</h2>
+    <section class="welcome-msg">
+        <h2>Professional Excellence</h2>
+        <p>Your story deserves to be told with clarity and impact. From the first sketch of a logo to the final cut of a video, I ensure every detail reflects your brand's unique identity.</p>
+    </section>
+
+    <section class="services">
+        <h2 style="text-align: center; margin-bottom: 50px; color: var(--primary-blue); font-size: 2.2rem;">My Specialized Services</h2>
         <div class="grid">
             <div class="card">
-                <i class="fas fa-pen-nib"></i>
+                <i class="fas fa-palette"></i>
                 <h3>Graphic Design</h3>
-                <p>From stunning logos to social media flyers and branding that speaks for itself.</p>
+                <p>High-end logos, social media flyers, and corporate branding that captures attention and builds trust.</p>
             </div>
             <div class="card">
-                <i class="fas fa-film"></i>
+                <i class="fas fa-video"></i>
                 <h3>Video Editing</h3>
-                <p>Bringing stories to life with cinematic transitions, color grading, and crisp audio.</p>
+                <p>Cinematic editing for social media, YouTube, and corporate presentations with crisp audio and visuals.</p>
             </div>
             <div class="card">
                 <i class="fas fa-camera-retro"></i>
-                <h3>Photo Retouching</h3>
-                <p>Enhancing every detail to ensure your photos look flawless and professional.</p>
+                <h3>Media Content</h3>
+                <p>Photo retouching and creative digital content designed to give your brand a modern, polished edge.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 George Onyando. Powered by Elevation Pillar Solutions.</p>
+        <div class="quote">"Creativity is intelligence having fun."</div>
+        <div class="footer-info">
+            <p>
+                <a href="https://wa.me/254728870061">
+                    <i class="fab fa-whatsapp"></i> +254 728 870 061
+                </a>
+            </p>
+            <p>
+                <a href="mailto:onyandogeorge@gmail.com">
+                    <i class="fas fa-envelope"></i> onyandogeorge@gmail.com
+                </a>
+            </p>
+        </div>
+        <p class="copyright">&copy; 2026 George Onyando | Powered by Elevation Pillar Solutions</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 
 </body>
 </html>
