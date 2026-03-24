@@ -15,6 +15,7 @@
             --white: #ffffff;
             --text-dark: #1e293b;
             --whatsapp-green: #25D366;
+            --fb-blue: #1877F2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,13 +62,19 @@
         .portfolio-item:hover .item-overlay { opacity: 1; }
         .overlay-btn { color: var(--white); font-size: 1.2rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 5px; }
 
+        /* FB Section Updates */
         .fb-section { padding: 60px 5%; text-align: center; background: #eef2f3; }
         .fb-container { 
-            background: white; padding: 10px; border-radius: 20px; 
+            background: white; padding: 15px; border-radius: 20px; 
             display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 100%; max-width: 500px;
+            width: 100%; max-width: 500px; min-height: 400px;
         }
-        .fb-container iframe { width: 100% !important; }
+        .fb-fallback { padding: 20px; text-align: center; }
+        .btn-fb-follow {
+            display: inline-block; background: var(--fb-blue); color: white;
+            padding: 12px 25px; border-radius: 50px; text-decoration: none;
+            font-weight: 600; margin-top: 15px; transition: 0.3s;
+        }
 
         .whatsapp-float {
             position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px;
@@ -161,10 +168,16 @@
         <p style="margin-bottom: 30px; color: #64748b;">Directly from the Georgex graphics Facebook Page</p>
         
         <div class="fb-container">
+            <div class="fb-fallback">
+                <p>Loading George's latest updates...</p>
+                <a href="https://www.facebook.com/share/1AkMUp97g6/" target="_blank" class="btn-fb-follow">
+                    <i class="fab fa-facebook"></i> Open Facebook Page
+                </a>
+            </div>
             <iframe 
                 src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574820299692&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
                 height="600" 
-                style="border:none;overflow:hidden;border-radius:10px;" 
+                style="border:none;overflow:hidden;border-radius:10px;width:100%;margin-top:-140px;" 
                 scrolling="no" 
                 frameborder="0" 
                 allowfullscreen="true" 
