@@ -38,6 +38,16 @@
         .about-text { flex: 1.5; min-width: 300px; }
         .about-text h1 { color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; }
         
+        /* Service Details Section */
+        .detailed-services { padding: 60px 8%; background: var(--white); }
+        .service-info { margin-bottom: 40px; padding-left: 20px; border-left: 4px solid var(--accent-gold); }
+        .service-info h3 { color: var(--primary-blue); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; }
+
+        /* Feedback Section */
+        .feedback-section { padding: 60px 8%; text-align: center; background: #eef2f3; }
+        .feedback-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .feedback-form textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; margin-bottom: 15px; resize: none; }
+        
         /* Buttons */
         .action-btns { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
         .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; }
@@ -47,12 +57,7 @@
         .btn-menu { background: var(--white); color: var(--primary-blue); border: 2px solid var(--primary-blue); margin-top: 40px; }
         .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* Motto Section */
         .motto-banner { background: var(--primary-blue); color: var(--white); padding: 40px 8%; text-align: center; font-style: italic; font-size: 1.4rem; }
-
-        /* Support Section */
-        .support-section { background: var(--white); padding: 60px 8%; text-align: center; margin-top: 40px; }
-        .support-card { max-width: 600px; margin: 0 auto; padding: 30px; border: 2px dashed var(--accent-gold); border-radius: 20px; }
 
         .stats { background: #f1f5f9; color: var(--primary-blue); padding: 40px 8%; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; border-top: 1px solid #e2e8f0; }
         .stat-item h2 { color: var(--primary-blue); font-size: 2.5rem; border-bottom: 3px solid var(--accent-gold); display: inline-block; margin-bottom: 5px; }
@@ -76,6 +81,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -99,21 +105,37 @@
         </div>
     </section>
 
+    <section class="detailed-services">
+        <h2 style="color: var(--primary-blue); margin-bottom: 30px; text-align: center;">What We Do Differently</h2>
+        
+        <div class="service-info">
+            <h3>Visual Identity & Branding</h3>
+            <p>We don't just design logos; we create a visual language for your brand. From color psychology to typography, every element is chosen to build trust and professional authority.</p>
+        </div>
+
+        <div class="service-info">
+            <h3>Cinematic Video Storytelling</h3>
+            <p>Moving pictures tell the best stories. I specialize in cinematic editing that captures emotion and drives action, perfect for corporate events, YouTube content, and high-impact social media ads.</p>
+        </div>
+
+        <div class="service-info">
+            <h3>Creative Media Content</h3>
+            <p>In a world of noise, high-quality visuals stand out. I provide professional photo retouching and digital content creation that ensures your brand always looks its absolute best.</p>
+        </div>
+    </section>
+
     <div class="motto-banner">
         "Quality is not an act, it is a habit. We don't just design; we define."
     </div>
 
-    <section class="support-section">
-        <div class="support-card">
-            <i class="fas fa-gem fa-3x" style="color: var(--accent-gold); margin-bottom: 15px;"></i>
-            <h2>Support the Creative Mission</h2>
-            <p>By supporting my work, you are helping elevate the visual standards of branding and digital storytelling in Kenya.</p>
-            <a href="contact.html" class="btn btn-support" style="margin-top: 20px;">Support My Work</a>
+    <section class="feedback-section">
+        <div class="feedback-form">
+            <i class="fas fa-comment-dots fa-3x" style="color: var(--primary-blue); margin-bottom: 15px;"></i>
+            <h3>Client Feedback</h3>
+            <p style="margin-bottom: 20px;">Your thoughts help us grow. Share your experience with George below.</p>
+            <textarea id="feedbackText" rows="4" placeholder="Write your feedback here..."></textarea>
+            <button onclick="sendFeedback()" class="btn btn-support">Submit Feedback via WhatsApp</button>
         </div>
-        
-        <a href="index.html" class="btn btn-menu">
-            <i class="fas fa-th-large"></i> Return to Menu
-        </a>
     </section>
 
     <section class="stats">
@@ -121,6 +143,12 @@
         <div class="stat-item"><h2>50+</h2><p>Happy Clients</p></div>
         <div class="stat-item"><h2>24/7</h2><p>Support</p></div>
     </section>
+
+    <div style="text-align: center; padding: 40px 0;">
+        <a href="index.html" class="btn btn-menu">
+            <i class="fas fa-th-large"></i> Return to Menu
+        </a>
+    </div>
 
     <footer>
         <div class="contact-grid">
@@ -139,6 +167,18 @@
         </div>
         <p>&copy; 2026 George Onyando | Designed by Elevation Pillar</p>
     </footer>
+
+    <script>
+        function sendFeedback() {
+            const feedback = document.getElementById('feedbackText').value;
+            if (feedback.trim() === "") {
+                alert("Please enter some feedback first!");
+                return;
+            }
+            const message = encodeURIComponent("Project Feedback: " + feedback);
+            window.open("https://wa.me/254728870061?text=" + message, "_blank");
+        }
+    </script>
 
 </body>
 </html>
