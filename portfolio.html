@@ -71,10 +71,17 @@
             justify-content: center; opacity: 0; transition: 0.4s;
         }
         .portfolio-item:hover .item-overlay { opacity: 1; }
-        .overlay-btn { color: var(--white); font-size: 1.5rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 5px; }
+        .overlay-btn { color: var(--white); font-size: 1.2rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 5px; }
 
-        /* Back to Home Button Styling */
-        .back-home-container { text-align: center; padding: 20px 0 60px; }
+        /* FB Feed Section */
+        .fb-section { padding: 60px 8%; text-align: center; background: #eef2f3; }
+        .fb-container { 
+            background: white; padding: 20px; border-radius: 20px; 
+            display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Back to Home Button */
+        .back-home-container { text-align: center; padding: 40px 0 60px; }
         .btn-home { 
             background: var(--white); color: var(--primary-blue); 
             border: 2px solid var(--primary-blue); padding: 12px 30px; 
@@ -109,19 +116,12 @@
 
     <header class="portfolio-header">
         <h1>Creative Showcase</h1>
-        <p>A collection of premium branding, cinematic video projects, and high-impact graphic solutions designed for excellence.</p>
+        <p>Branding, cinematic video projects, and high-impact graphic solutions.</p>
     </header>
-
-    <div class="filter-container">
-        <button class="filter-btn active">All Work</button>
-        <button class="filter-btn">Logos</button>
-        <button class="filter-btn">Flyers</button>
-        <button class="filter-btn">Video Editing</button>
-    </div>
 
     <section class="portfolio-grid">
         <div class="portfolio-item">
-            <div class="item-overlay"><a href="#" class="overlay-btn">View Project</a></div>
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Logo</a></div>
             <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
             <div class="item-info">
                 <h3>Corporate Identity</h3>
@@ -130,11 +130,11 @@
         </div>
 
         <div class="portfolio-item">
-            <div class="item-overlay"><a href="#" class="overlay-btn">View Project</a></div>
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Flyer</a></div>
             <img src="flyer1.jpg" alt="Church Flyer" class="portfolio-img">
             <div class="item-info">
                 <h3>Event Branding</h3>
-                <p>Vibrant flyer design for community and church events.</p>
+                <p>Vibrant flyer design for community events.</p>
             </div>
         </div>
 
@@ -154,6 +154,17 @@
                 <h3>Professional Retouching</h3>
                 <p>Ensuring every pixel meets the highest standards.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="fb-section">
+        <h2 style="color: var(--primary-blue); margin-bottom: 10px;">Recent Studio Activity</h2>
+        <p style="margin-bottom: 30px; color: #64748b;">Directly from George's Facebook Page</p>
+        
+        <div class="fb-container">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AkMUp97g6%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
+                width="340" height="500" style="border:none;overflow:hidden;border-radius:10px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+            </iframe>
         </div>
     </section>
 
