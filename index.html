@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta property="og:title" content="Onyando Designs | Visionary Creative in Mombasa">
-<meta property="og:description" content="Professional Branding, Cinematic Video, and Digital Profiles by George Onyando.">
-<meta property="og:image" content="headteacher.jpg"> 
-<meta property="og:url" content="https://georgeonyando.co.ke">
-<meta name="theme-color" content="#003366">
+    <meta property="og:description" content="Professional Branding, Cinematic Video, and Digital Profiles by George Onyando.">
+    <meta property="og:image" content="headteacher.jpg"> 
+    <meta property="og:url" content="https://georgeonyando.co.ke">
+    <meta name="theme-color" content="#003366">
 
     <link rel="icon" type="image/jpg" href="favicon.jpg">
 
@@ -26,6 +26,14 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Global Image Fix for Perfect Fit */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
 
         /* Navigation */
@@ -48,7 +56,6 @@
         .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent-gold); }
 
-        /* Hamburger Menu Icon */
         .menu-toggle {
             display: none;
             flex-direction: column;
