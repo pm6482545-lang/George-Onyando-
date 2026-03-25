@@ -20,8 +20,17 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; }
+        
+        /* Global Image Fix */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
 
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); line-height: 1.8; overflow-x: hidden; }
+
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000;
@@ -29,49 +38,75 @@
         }
         .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); text-decoration: none; }
         .logo span { color: var(--accent-gold); }
+        
         .nav-links { display: flex; list-style: none; }
         .nav-links li { margin-left: 30px; }
         .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; }
+        
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 2px; }
 
-        .about-container { padding: 60px 8%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
-        .about-image { flex: 1; min-width: 300px; text-align: center; }
+        /* Main Container */
+        .about-container { padding: 80px 8%; display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+        .about-image { flex: 1; min-width: 300px; display: flex; justify-content: center; }
         .about-image img { width: 100%; max-width: 400px; border-radius: 20px; border: 10px solid var(--white); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
 
         .about-text { flex: 1.5; min-width: 300px; }
-        .about-text h1 { color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 20px; }
+        .about-text h1 { color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 2.8rem; margin-bottom: 20px; line-height: 1.2; }
         
         /* Service Details Section */
-        .detailed-services { padding: 60px 8%; background: var(--white); }
-        .service-info { margin-bottom: 40px; padding-left: 20px; border-left: 4px solid var(--accent-gold); }
+        .detailed-services { padding: 80px 8%; background: var(--white); }
+        .service-info { margin-bottom: 40px; padding: 25px; border-left: 5px solid var(--accent-gold); background: var(--bg-light); border-radius: 0 15px 15px 0; }
         .service-info h3 { color: var(--primary-blue); font-family: 'Montserrat', sans-serif; margin-bottom: 10px; }
 
         /* Feedback Section */
-        .feedback-section { padding: 60px 8%; text-align: center; background: #eef2f3; }
-        .feedback-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .feedback-form textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; margin-bottom: 15px; resize: none; }
+        .feedback-section { padding: 80px 8%; text-align: center; background: #eef2f3; }
+        .feedback-form { max-width: 600px; margin: 0 auto; background: var(--white); padding: 40px 30px; border-radius: 25px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        .feedback-form textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit; margin-bottom: 20px; resize: none; font-size: 1rem; }
         
         /* Buttons */
         .action-btns { display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
-        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; }
+        .btn { padding: 14px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-flex; align-items: center; gap: 10px; border: none; cursor: pointer; font-size: 1rem; }
         .btn-wa { background: #25d366; color: white; }
         .btn-fb { background: var(--fb-blue); color: white; }
-        .btn-support { background: var(--accent-gold); color: var(--primary-blue); }
-        .btn-menu { background: var(--white); color: var(--primary-blue); border: 2px solid var(--primary-blue); margin-top: 40px; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-support { background: var(--accent-gold); color: var(--primary-blue); width: 100%; justify-content: center; }
+        .btn-menu { background: var(--white); color: var(--primary-blue); border: 2px solid var(--primary-blue); margin-top: 20px; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
 
-        .motto-banner { background: var(--primary-blue); color: var(--white); padding: 40px 8%; text-align: center; font-style: italic; font-size: 1.4rem; }
+        .motto-banner { background: var(--primary-blue); color: var(--white); padding: 60px 8%; text-align: center; font-style: italic; font-size: 1.6rem; line-height: 1.4; }
 
-        .stats { background: #f1f5f9; color: var(--primary-blue); padding: 40px 8%; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; border-top: 1px solid #e2e8f0; }
-        .stat-item h2 { color: var(--primary-blue); font-size: 2.5rem; border-bottom: 3px solid var(--accent-gold); display: inline-block; margin-bottom: 5px; }
+        .stats { background: #f8fafc; color: var(--primary-blue); padding: 60px 8%; display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px; }
+        .stat-item { flex: 1; min-width: 150px; }
+        .stat-item h2 { color: var(--primary-blue); font-size: 3rem; border-bottom: 4px solid var(--accent-gold); display: inline-block; margin-bottom: 10px; }
 
         footer { background: var(--primary-blue); color: var(--white); padding: 60px 8% 20px; text-align: center; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .contact-item i { font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 10px; display: block; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .contact-item i { font-size: 1.8rem; color: var(--accent-gold); margin-bottom: 12px; display: block; }
 
+        /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .about-container { padding: 40px 5%; text-align: center; }
-            .nav-links { display: none; }
+            nav { padding: 15px 5%; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; margin-left: 0; }
+            
+            .about-container { padding: 60px 5%; text-align: center; }
+            .about-text h1 { font-size: 2.2rem; }
             .action-btns { justify-content: center; }
+            .service-info { text-align: left; }
+            .stats { padding: 40px 5%; }
         }
     </style>
 </head>
@@ -79,7 +114,12 @@
 
     <nav>
         <a href="index.html" class="logo">ONYANDO<span>DESIGNS</span></a>
-        <ul class="nav-links">
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
@@ -98,17 +138,17 @@
             
             <div class="action-btns">
                 <a href="https://www.facebook.com/share/1AkMUp97g6/" target="_blank" class="btn btn-fb">
-                    <i class="fab fa-facebook-f"></i> Visit My Facebook
+                    <i class="fab fa-facebook-f"></i> Visit Facebook
                 </a>
                 <a href="https://wa.me/254728870061" class="btn btn-wa">
-                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    <i class="fab fa-whatsapp"></i> WhatsApp Me
                 </a>
             </div>
         </div>
     </section>
 
     <section class="detailed-services">
-        <h2 style="color: var(--primary-blue); margin-bottom: 30px; text-align: center;">What We Do Differently</h2>
+        <h2 style="color: var(--primary-blue); margin-bottom: 40px; text-align: center; font-family: 'Montserrat';">What We Do Differently</h2>
         
         <div class="service-info">
             <h3>Visual Identity & Branding</h3>
@@ -132,21 +172,21 @@
 
     <section class="feedback-section">
         <div class="feedback-form">
-            <i class="fas fa-comment-dots fa-3x" style="color: var(--primary-blue); margin-bottom: 15px;"></i>
+            <i class="fas fa-comment-dots fa-3x" style="color: var(--primary-blue); margin-bottom: 20px;"></i>
             <h3>Client Feedback</h3>
-            <p style="margin-bottom: 20px;">Your thoughts help us grow. Share your experience with George below.</p>
+            <p style="margin-bottom: 25px; color: #64748b;">Your thoughts help us grow. Share your experience with George below.</p>
             <textarea id="feedbackText" rows="4" placeholder="Write your feedback here..."></textarea>
-            <button onclick="sendFeedback()" class="btn btn-support">Submit Feedback via WhatsApp</button>
+            <button onclick="sendFeedback()" class="btn btn-support">Submit via WhatsApp</button>
         </div>
     </section>
 
     <section class="stats">
         <div class="stat-item"><h2>100+</h2><p>Projects Done</p></div>
         <div class="stat-item"><h2>50+</h2><p>Happy Clients</p></div>
-        <div class="stat-item"><h2>24/7</h2><p>Support</p></div>
+        <div class="stat-item"><h2>24/7</h2><p>Expert Support</p></div>
     </section>
 
-    <div style="text-align: center; padding: 40px 0;">
+    <div style="text-align: center; padding: 60px 0; background: var(--white);">
         <a href="index.html" class="btn btn-menu">
             <i class="fas fa-th-large"></i> Return to Menu
         </a>
@@ -167,17 +207,22 @@
                 <p>Mombasa, Kenya</p>
             </div>
         </div>
-        <p>&copy; 2026 George Onyando | Designed by Elevation Pillar</p>
+        <p class="copyright" style="opacity: 0.7; font-size: 0.9rem;">&copy; 2026 George Onyando | Powered by Elevation Pillar Solutions</p>
     </footer>
 
     <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
         function sendFeedback() {
             const feedback = document.getElementById('feedbackText').value;
             if (feedback.trim() === "") {
                 alert("Please enter some feedback first!");
                 return;
             }
-            const message = encodeURIComponent("Project Feedback: " + feedback);
+            const message = encodeURIComponent("New Feedback for George Onyando: " + feedback);
             window.open("https://wa.me/254728870061?text=" + message, "_blank");
         }
     </script>
