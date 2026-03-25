@@ -21,8 +21,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Global Image Fix */
         img { max-width: 100%; height: auto; display: block; }
 
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
@@ -33,7 +31,9 @@
             padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); text-decoration: none; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-favicon { width: 35px; height: 35px; border-radius: 5px; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); }
         .logo span { color: var(--accent-gold); }
         
         .nav-links { display: flex; list-style: none; }
@@ -60,20 +60,21 @@
         .portfolio-item {
             background: var(--white); border-radius: 20px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; position: relative;
+            display: flex; flex-direction: column;
         }
         .portfolio-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        .portfolio-img-container { position: relative; height: 250px; overflow: hidden; }
+        .portfolio-img-container { position: relative; height: 250px; overflow: hidden; background: #f1f5f9; }
         .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .portfolio-item:hover .portfolio-img { transform: scale(1.1); }
 
-        .item-info { padding: 25px; }
+        .item-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
         .item-info h3 { color: var(--primary-blue); margin-bottom: 8px; font-size: 1.4rem; font-family: 'Montserrat'; }
-        .item-info p { font-size: 0.95rem; color: #64748b; line-height: 1.5; }
-        .tag { display: inline-block; background: var(--bg-light); color: var(--primary-blue); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; }
+        .item-info p { font-size: 0.95rem; color: #64748b; line-height: 1.5; margin-bottom: 15px; }
+        .tag { display: inline-block; background: var(--bg-light); color: var(--primary-blue); padding: 4px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; margin-bottom: 10px; text-transform: uppercase; align-self: flex-start; }
 
         .item-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 250px;
             background: rgba(0,51,102,0.8); display: flex; align-items: center;
             justify-content: center; opacity: 0; transition: 0.4s; z-index: 2;
         }
@@ -113,7 +114,6 @@
         .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3); }
         .btn-hire:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4); }
 
-        /* Responsive Breakpoints */
         @media (max-width: 768px) {
             nav { padding: 15px 5%; }
             .menu-toggle { display: flex; }
@@ -124,12 +124,8 @@
             }
             .nav-links.active { display: flex; }
             .nav-links li { margin: 15px 0; margin-left: 0; }
-            
-            .portfolio-header { padding: 80px 5%; }
             .portfolio-header h1 { font-size: 2.2rem; }
             .portfolio-grid { padding: 40px 5%; }
-            .cta-footer h2 { font-size: 2rem; }
-            .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; font-size: 25px; }
         }
     </style>
 </head>
@@ -140,7 +136,10 @@
     </a>
 
     <nav>
-        <a href="index.html" class="logo">ONYANDO<span>DESIGNS</span></a>
+        <a href="index.html" class="logo-container">
+            <img src="favicon.jpg" alt="Logo" class="nav-favicon">
+            <div class="logo">ONYANDO<span>DESIGNS</span></div>
+        </a>
         <div class="menu-toggle" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -157,19 +156,20 @@
 
     <header class="portfolio-header">
         <h1>Creative Showcase</h1>
-        <p>A collection of cinematic edits, professional branding, and institutional profiles.</p>
+        <p>Explore high-impact branding, cinematic video projects, and professional documentation.</p>
     </header>
 
     <section class="portfolio-grid">
+        
         <div class="portfolio-item">
-            <div class="item-overlay"><a href="https://bethaniaacademy.com" target="_blank" class="overlay-btn">Visit Website</a></div>
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Logo Detail</a></div>
             <div class="portfolio-img-container">
-                <img src="bethania-hero.jpg" alt="Bethania Academy Portal" class="portfolio-img">
+                <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
             </div>
             <div class="item-info">
-                <span class="tag">Web & Institutional Profile</span>
-                <h3>Bethania Academy</h3>
-                <p>Complete digital profile for a leading educational center, including academic archives.</p>
+                <span class="tag">Corporate Identity</span>
+                <h3>Modern Branding</h3>
+                <p>Sleek and professional logo concepts designed to give businesses a lasting identity.</p>
             </div>
         </div>
 
@@ -181,7 +181,7 @@
             <div class="item-info">
                 <span class="tag">Event Graphics</span>
                 <h3>Community Branding</h3>
-                <p>Vibrant flyer designs capturing the essence of local community gatherings.</p>
+                <p>Eye-catching flyer designs for church events, social gatherings, and marketing campaigns.</p>
             </div>
         </div>
 
@@ -193,21 +193,29 @@
             <div class="item-info">
                 <span class="tag">Cinematic Video</span>
                 <h3>Project Storytelling</h3>
-                <p>High-end post-production and color grading for impactful digital narratives.</p>
+                <p>Professional video editing and post-production for digital marketing and events.</p>
             </div>
         </div>
 
         <div class="portfolio-item">
-            <div class="item-overlay"><a href="#" class="overlay-btn">View Logo Detail</a></div>
+            <div class="item-overlay">
+                <a href="bethania-profile.pdf" download class="overlay-btn">
+                    <i class="fas fa-file-download"></i> Download PDF
+                </a>
+            </div>
             <div class="portfolio-img-container">
-                <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
+                <img src="bethania-thumb.jpg" alt="Bethania Academy Profile" class="portfolio-img">
             </div>
             <div class="item-info">
-                <span class="tag">Corporate Identity</span>
-                <h3>Modern Branding</h3>
-                <p>Sleek, professional logo concepts designed for longevity and brand recognition.</p>
+                <span class="tag">Institutional Profile</span>
+                <h3>Bethania Academy</h3>
+                <p>A comprehensive 12-page digital profile showcasing school excellence and academic archives.</p>
+                <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem; margin-top: auto; display: block;">
+                    <i class="fas fa-download"></i> Get PDF Copy
+                </a>
             </div>
         </div>
+
     </section>
 
     <section class="fb-section">
