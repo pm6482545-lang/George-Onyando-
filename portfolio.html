@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link rel="icon" type="image/jpg" href="favicon.jpg">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | George Onyando Creative Showcase</title>
@@ -22,7 +21,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         img { max-width: 100%; height: auto; display: block; }
-
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
 
         /* Navigation */
@@ -87,7 +85,7 @@
         .fb-container { 
             background: white; padding: 15px; border-radius: 25px; 
             display: inline-block; box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            width: 100%; max-width: 500px; overflow: hidden;
+            width: 100%; max-width: 500px; min-height: 500px; overflow: hidden;
         }
         
         /* Floating WhatsApp */
@@ -98,7 +96,6 @@
             z-index: 1001; display: flex; align-items: center; justify-content: center;
             text-decoration: none; transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
 
         .back-home-container { text-align: center; padding: 40px 0 60px; background: #eef2f3; }
         .btn-home { 
@@ -107,12 +104,10 @@
             border: 2px solid var(--primary-blue); padding: 12px 35px; 
             border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s;
         }
-        .btn-home:hover { background: var(--primary-blue); color: white; }
 
         .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 100px 8%; }
         .cta-footer h2 { font-size: 2.8rem; margin-bottom: 20px; font-family: 'Montserrat'; }
-        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3); }
-        .btn-hire:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 204, 0, 0.4); }
+        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; }
 
         @media (max-width: 768px) {
             nav { padding: 15px 5%; }
@@ -124,12 +119,13 @@
             }
             .nav-links.active { display: flex; }
             .nav-links li { margin: 15px 0; margin-left: 0; }
-            .portfolio-header h1 { font-size: 2.2rem; }
-            .portfolio-grid { padding: 40px 5%; }
         }
     </style>
 </head>
 <body>
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0"></script>
 
     <a href="https://wa.me/254728870061" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -141,9 +137,7 @@
             <div class="logo">ONYANDO<span>DESIGNS</span></div>
         </a>
         <div class="menu-toggle" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
@@ -160,7 +154,6 @@
     </header>
 
     <section class="portfolio-grid">
-        
         <div class="portfolio-item">
             <div class="item-overlay"><a href="#" class="overlay-btn">View Logo Detail</a></div>
             <div class="portfolio-img-container">
@@ -181,7 +174,7 @@
             <div class="item-info">
                 <span class="tag">Event Graphics</span>
                 <h3>Community Branding</h3>
-                <p>Eye-catching flyer designs for church events, social gatherings, and marketing campaigns.</p>
+                <p>Eye-catching flyer designs for church events and marketing campaigns.</p>
             </div>
         </div>
 
@@ -193,7 +186,7 @@
             <div class="item-info">
                 <span class="tag">Cinematic Video</span>
                 <h3>Project Storytelling</h3>
-                <p>Professional video editing and post-production for digital marketing and events.</p>
+                <p>Professional video editing and post-production for digital marketing.</p>
             </div>
         </div>
 
@@ -209,13 +202,12 @@
             <div class="item-info">
                 <span class="tag">Institutional Profile</span>
                 <h3>Bethania Academy</h3>
-                <p>A comprehensive 12-page digital profile showcasing school excellence and academic archives.</p>
+                <p>A comprehensive 12-page digital profile showcasing school excellence.</p>
                 <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem; margin-top: auto; display: block;">
                     <i class="fas fa-download"></i> Get PDF Copy
                 </a>
             </div>
         </div>
-
     </section>
 
     <section class="fb-section">
@@ -223,15 +215,19 @@
         <p style="margin-bottom: 40px; color: #64748b;">Live updates directly from George's studio.</p>
         
         <div class="fb-container">
-            <iframe 
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61574820299692&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                height="600" 
-                style="border:none;overflow:hidden;width:100%;" 
-                scrolling="no" 
-                frameborder="0" 
-                allowfullscreen="true" 
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/profile.php?id=61574820299692" 
+                 data-tabs="timeline" 
+                 data-width="500" 
+                 data-height="600" 
+                 data-small-header="false" 
+                 data-adapt-container-width="true" 
+                 data-hide-cover="false" 
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/profile.php?id=61574820299692" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/profile.php?id=61574820299692">Onyando Designs</a>
+                </blockquote>
+            </div>
         </div>
     </section>
 
@@ -251,6 +247,5 @@
             navLinks.classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
