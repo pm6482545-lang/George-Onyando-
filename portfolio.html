@@ -80,16 +80,19 @@
         .overlay-btn { color: var(--white); font-size: 1rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 12px 25px; border-radius: 50px; font-weight: 600; transition: 0.3s; }
         .overlay-btn:hover { background: var(--accent-gold); color: var(--primary-blue); }
 
-        /* FB Section */
+        /* FB Section Updated for Desktop/Mobile Fit */
         .fb-section { padding: 80px 8%; text-align: center; background: #eef2f3; }
         .fb-container { 
             background: white; padding: 15px; border-radius: 25px; 
-            display: inline-block; box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            width: 100%; max-width: 500px; min-height: 600px; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            width: 100%; max-width: 500px; min-height: 600px; 
+            margin: 0 auto; overflow: hidden;
+            display: flex; justify-content: center;
         }
-        /* Fix for desktop and mobile fitting */
+        
         .fb-page, .fb-page span, .fb-page iframe {
             width: 100% !important;
+            min-width: 300px; /* Ensures it doesn't collapse too small on desktop */
         }
         
         /* Floating WhatsApp */
@@ -123,6 +126,7 @@
             }
             .nav-links.active { display: flex; }
             .nav-links li { margin: 15px 0; margin-left: 0; }
+            .fb-page, .fb-page span, .fb-page iframe { min-width: auto; }
         }
     </style>
 </head>
