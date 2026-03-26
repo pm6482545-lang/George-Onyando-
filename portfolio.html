@@ -54,7 +54,6 @@
         .portfolio-section { padding: 25px 4%; }
         .portfolio-grid {
             display: grid; 
-            /* Improved Grid: 2 columns on mobile, 3 on desktop */
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
             gap: 15px; max-width: 1200px; margin: 0 auto;
         }
@@ -81,14 +80,17 @@
         .item-info p { font-size: 0.75rem; color: #475569; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3; }
         .tag { display: inline-block; background: #f1f5f9; color: var(--primary-blue); padding: 2px 6px; border-radius: 4px; font-size: 0.55rem; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; align-self: flex-start; }
 
-        /* FB Section Responsive Fix */
+        /* FB Section Fixed */
         .fb-section { padding: 30px 5%; text-align: center; background: #eef2f3; }
         .fb-container { 
-            background: white; padding: 8px; border-radius: 12px; 
+            background: white; padding: 15px; border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             width: 100%; max-width: 500px; margin: 0 auto; 
             overflow: hidden; display: flex; justify-content: center;
+            min-height: 500px;
         }
+        /* Force FB plugin to be responsive */
+        .fb-page, .fb-page span, .fb-page iframe[style] { width: 100% !important; }
 
         /* Floating WhatsApp */
         .whatsapp-float {
@@ -215,7 +217,7 @@
             <div class="fb-page" 
                  data-href="https://www.facebook.com/profile.php?id=61578431138477" 
                  data-tabs="timeline" 
-                 data-width="500" 
+                 data-width="" 
                  data-small-header="false" 
                  data-adapt-container-width="true" 
                  data-hide-cover="false" 
@@ -237,6 +239,17 @@
             const links = document.getElementById('navLinks');
             links.classList.toggle('active');
         }
+
+        // Fix for Facebook Plugin Resizing
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (typeof FB !== 'undefined') {
+                    FB.XFBML.parse(); 
+                }
+            }, 400);
+        });
     </script>
 </body>
 </html>
