@@ -3,7 +3,7 @@
 <head>
     <link rel="icon" type="image/jpg" href="favicon.jpg">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Portfolio | George Onyando Creative Showcase</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -25,110 +25,112 @@
         /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: var(--white); position: sticky; top: 0; z-index: 1000;
+            padding: 12px 5%; background: var(--white); position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .nav-favicon { width: 35px; height: 35px; border-radius: 5px; }
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--primary-blue); }
+        .nav-favicon { width: 32px; height: 32px; border-radius: 5px; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--primary-blue); }
         .logo span { color: var(--accent-gold); }
         
         .nav-links { display: flex; list-style: none; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; font-size: 0.95rem; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; font-size: 0.9rem; }
         .nav-links a:hover { color: var(--accent-gold); }
         
-        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; padding: 5px; }
         .menu-toggle span { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 2px; }
 
         /* Header */
         .portfolio-header {
             background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('headteacher.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--white); padding: 60px 5%; text-align: center;
+            background-size: cover; background-position: center; background-attachment: scroll;
+            color: var(--white); padding: 50px 5%; text-align: center;
         }
-        .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 10px; }
-        .portfolio-header p { font-size: 1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; font-weight: 300; }
+        .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.6rem, 5vw, 2.8rem); margin-bottom: 8px; }
+        .portfolio-header p { font-size: 0.95rem; opacity: 0.9; max-width: 600px; margin: 0 auto; font-weight: 300; }
 
-        /* Portfolio Grid - LANDSCAPE 2-COLUMN MOBILE */
-        .portfolio-section { padding: 30px 3%; }
+        /* Portfolio Grid - Responsive & Uniform */
+        .portfolio-section { padding: 25px 4%; }
         .portfolio-grid {
             display: grid; 
-            /* Forces 2 columns on small screens */
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 12px; max-width: 1400px; margin: 0 auto;
+            /* Improved Grid: 2 columns on mobile, 3 on desktop */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; max-width: 1200px; margin: 0 auto;
         }
         
         .portfolio-item {
-            background: var(--white); border-radius: 12px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s ease; position: relative;
+            background: var(--white); border-radius: 10px; overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); transition: 0.3s ease; position: relative;
             display: flex; flex-direction: column; height: 100%;
         }
         
-        .portfolio-img-container { position: relative; height: 150px; overflow: hidden; background: #e2e8f0; }
+        .portfolio-img-container { position: relative; height: 140px; overflow: hidden; background: #e2e8f0; }
         .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
-        /* Overlays */
         .item-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,51,102,0.85); display: flex; align-items: center;
+            background: rgba(0,51,102,0.8); display: flex; align-items: center;
             justify-content: center; opacity: 0; transition: 0.3s; z-index: 2;
         }
         .portfolio-img-container:hover .item-overlay { opacity: 1; }
-        .overlay-btn { color: var(--white); font-size: 0.7rem; text-decoration: none; border: 1.5px solid var(--accent-gold); padding: 5px 10px; border-radius: 50px; font-weight: 600; }
+        .overlay-btn { color: var(--white); font-size: 0.7rem; text-decoration: none; border: 1.5px solid var(--accent-gold); padding: 6px 12px; border-radius: 50px; font-weight: 600; }
 
-        .item-info { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
-        .item-info h3 { color: var(--primary-blue); margin-bottom: 5px; font-size: 0.95rem; font-family: 'Montserrat'; }
-        .item-info p { font-size: 0.75rem; color: #475569; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .tag { display: inline-block; background: #f1f5f9; color: var(--primary-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.6rem; font-weight: 700; margin-bottom: 5px; text-transform: uppercase; align-self: flex-start; }
+        .item-info { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .item-info h3 { color: var(--primary-blue); margin-bottom: 4px; font-size: 0.9rem; font-family: 'Montserrat'; }
+        .item-info p { font-size: 0.75rem; color: #475569; margin-bottom: 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3; }
+        .tag { display: inline-block; background: #f1f5f9; color: var(--primary-blue); padding: 2px 6px; border-radius: 4px; font-size: 0.55rem; font-weight: 700; margin-bottom: 6px; text-transform: uppercase; align-self: flex-start; }
 
-        /* FB Section */
-        .fb-section { padding: 40px 5%; text-align: center; background: #eef2f3; }
+        /* FB Section Responsive Fix */
+        .fb-section { padding: 30px 5%; text-align: center; background: #eef2f3; }
         .fb-container { 
-            background: white; padding: 10px; border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            width: 100%; max-width: 800px; margin: 0 auto; 
+            background: white; padding: 8px; border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 100%; max-width: 500px; margin: 0 auto; 
             overflow: hidden; display: flex; justify-content: center;
         }
 
         /* Floating WhatsApp */
         .whatsapp-float {
-            position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px;
+            position: fixed; width: 50px; height: 50px; bottom: 20px; right: 20px;
             background-color: var(--whatsapp-green); color: #FFF; border-radius: 50px;
-            text-align: center; font-size: 28px; box-shadow: 2px 4px 12px rgba(0,0,0,0.2);
+            text-align: center; font-size: 24px; box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
             z-index: 1001; display: flex; align-items: center; justify-content: center;
             text-decoration: none;
         }
 
-        .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 60px 5%; }
-        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; }
+        .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 50px 5%; }
+        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; font-size: 0.9rem; }
 
-        /* Desktop Adjustment */
+        /* Adjustments for Desktop */
         @media (min-width: 992px) {
             .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
-            .portfolio-img-container { height: 230px; }
-            .item-info h3 { font-size: 1.2rem; }
-            .item-info p { font-size: 0.9rem; -webkit-line-clamp: 3; }
-            .overlay-btn { font-size: 0.85rem; padding: 8px 18px; }
+            .portfolio-img-container { height: 220px; }
+            .item-info h3 { font-size: 1.1rem; }
+            .item-info p { font-size: 0.85rem; -webkit-line-clamp: 3; }
+            .overlay-btn { font-size: 0.8rem; }
+            .logo { font-size: 1.4rem; }
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu Logic */
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
             .nav-links {
                 display: none; flex-direction: column; position: absolute;
-                top: 65px; left: 0; width: 100%; background: var(--white);
+                top: 60px; left: 0; width: 100%; background: var(--white);
                 padding: 20px 0; border-bottom: 3px solid var(--accent-gold);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             .nav-links.active { display: flex; }
-            .nav-links li { margin: 12px 0; margin-left: 0; }
+            .nav-links li { margin: 10px 0; text-align: center; }
+            .nav-links li { margin-left: 0; }
         }
     </style>
 </head>
 <body>
 
     <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v19.0"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v21.0"></script>
 
     <a href="https://wa.me/254728870061" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -139,7 +141,7 @@
             <img src="favicon.jpg" alt="Logo" class="nav-favicon">
             <div class="logo">ONYANDO<span>DESIGNS</span></div>
         </a>
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">
             <span></span><span></span><span></span>
         </div>
         <ul class="nav-links" id="navLinks">
@@ -164,9 +166,11 @@
                     <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
                 </div>
                 <div class="item-info">
-                    <span class="tag">Identity</span>
-                    <h3>Modern Branding</h3>
-                    <p>Clean, professional logo concepts built to represent corporate and personal brands.</p>
+                    <div>
+                        <span class="tag">Identity</span>
+                        <h3>Modern Branding</h3>
+                        <p>Clean, professional logo concepts built for corporate and personal brands.</p>
+                    </div>
                 </div>
             </div>
 
@@ -176,9 +180,11 @@
                     <img src="flyer1.jpg" alt="Church Flyer" class="portfolio-img">
                 </div>
                 <div class="item-info">
-                    <span class="tag">Graphics</span>
-                    <h3>Event Publicity</h3>
-                    <p>Creative flyers and posters optimized for social media and high-quality printing.</p>
+                    <div>
+                        <span class="tag">Graphics</span>
+                        <h3>Event Publicity</h3>
+                        <p>Creative flyers and posters optimized for social media and printing.</p>
+                    </div>
                 </div>
             </div>
 
@@ -190,10 +196,12 @@
                     <img src="bethania-thumb.jpg" alt="Bethania Academy" class="portfolio-img">
                 </div>
                 <div class="item-info">
-                    <span class="tag">Institutional</span>
-                    <h3>Bethania Academy</h3>
-                    <p>Detailed digital profile design showcasing academic performance and school facilities.</p>
-                    <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.75rem; margin-top: auto;">
+                    <div>
+                        <span class="tag">Institutional</span>
+                        <h3>Bethania Academy</h3>
+                        <p>Detailed digital profile design showcasing academic performance.</p>
+                    </div>
+                    <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.7rem; margin-top: 5px; display: block;">
                         <i class="fas fa-file-pdf"></i> Get PDF
                     </a>
                 </div>
@@ -202,13 +210,12 @@
     </section>
 
     <section class="fb-section">
-        <h2 style="color: var(--primary-blue); margin-bottom: 20px; font-family: 'Montserrat'; font-size: 1.4rem;">Live Studio Updates</h2>
+        <h2 style="color: var(--primary-blue); margin-bottom: 15px; font-family: 'Montserrat'; font-size: 1.2rem;">Live Studio Updates</h2>
         <div class="fb-container">
             <div class="fb-page" 
                  data-href="https://www.facebook.com/profile.php?id=61578431138477" 
                  data-tabs="timeline" 
                  data-width="500" 
-                 data-height="500" 
                  data-small-header="false" 
                  data-adapt-container-width="true" 
                  data-hide-cover="false" 
@@ -220,14 +227,15 @@
         </div>
     </section>
 
-    <section class="cta-footer">
+    <footer class="cta-footer">
         <h2>Need a Custom Design?</h2>
         <a href="https://wa.me/254728870061" class="btn-hire">Message on WhatsApp</a>
-    </section>
+    </footer>
 
     <script>
         function toggleMenu() {
-            document.getElementById('navLinks').classList.toggle('active');
+            const links = document.getElementById('navLinks');
+            links.classList.toggle('active');
         }
     </script>
 </body>
