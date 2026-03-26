@@ -23,81 +23,74 @@
         img { max-width: 100%; height: auto; display: block; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
 
-        /* Navigation - Wider padding for desktop */
+        /* Navigation */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; background: var(--white); position: sticky; top: 0; z-index: 1000;
+            padding: 15px 8%; background: var(--white); position: sticky; top: 0; z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-favicon { width: 35px; height: 35px; border-radius: 5px; }
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--primary-blue); }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--primary-blue); }
         .logo span { color: var(--accent-gold); }
         
         .nav-links { display: flex; list-style: none; }
         .nav-links li { margin-left: 30px; }
-        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; border-bottom: 2px solid transparent; }
-        .nav-links a:hover { border-color: var(--accent-gold); }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-gold); }
         
         .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
         .menu-toggle span { width: 25px; height: 3px; background: var(--primary-blue); border-radius: 2px; }
 
-        /* Header - Full Width Impact */
+        /* Header */
         .portfolio-header {
             background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('headteacher.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--white); padding: 120px 5%; text-align: center;
+            color: var(--white); padding: 100px 8%; text-align: center;
         }
-        .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 15px; }
-        .portfolio-header p { font-size: clamp(1rem, 1.5vw, 1.3rem); opacity: 0.9; max-width: 800px; margin: 0 auto; font-weight: 300; }
+        .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 15px; }
+        .portfolio-header p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; font-weight: 300; }
 
-        /* Grid - Occupies more screen on computer */
+        /* Portfolio Grid - Fixed for 3 items on PC */
         .portfolio-grid {
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Larger minimum for cards */
-            gap: 40px; 
-            padding: 60px 5%; 
-            max-width: 1500px; /* Expands to fill large screens */
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr); /* 3 neat columns on PC */
+            gap: 30px; padding: 60px 8%; max-width: 1300px; margin: 0 auto;
         }
+        
         .portfolio-item {
             background: var(--white); border-radius: 20px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; position: relative;
-            display: flex; flex-direction: column; height: 100%;
+            display: flex; flex-direction: column;
         }
         .portfolio-item:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
         
-        .portfolio-img-container { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #f1f5f9; }
+        .portfolio-img-container { position: relative; height: 250px; overflow: hidden; background: #f1f5f9; }
         .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .portfolio-item:hover .portfolio-img { transform: scale(1.1); }
 
-        .item-info { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .item-info h3 { color: var(--primary-blue); margin-bottom: 10px; font-size: 1.5rem; font-family: 'Montserrat'; }
-        .item-info p { font-size: 1rem; color: #64748b; line-height: 1.6; margin-bottom: 20px; }
-        
-        /* FB Section - Fits computer better */
-        .fb-section { padding: 80px 5%; text-align: center; background: #eef2f3; }
-        .fb-container { 
-            background: white; padding: 20px; border-radius: 25px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            width: 100%; 
-            max-width: 600px; /* Slightly wider for computer */
-            min-height: 500px; 
-            margin: 0 auto; 
-            display: flex; justify-content: center;
+        /* Overlays (Restored) */
+        .item-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 250px;
+            background: rgba(0,51,102,0.8); display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.4s; z-index: 2;
         }
+        .portfolio-item:hover .item-overlay { opacity: 1; }
+        .overlay-btn { color: var(--white); font-size: 0.9rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 10px 20px; border-radius: 50px; font-weight: 600; transition: 0.3s; }
+        .overlay-btn:hover { background: var(--accent-gold); color: var(--primary-blue); }
 
-        /* Responsive Mobile Adjustments */
-        @media (max-width: 768px) {
-            .portfolio-grid { grid-template-columns: 1fr; padding: 40px 5%; }
-            .menu-toggle { display: flex; }
-            .nav-links {
-                display: none; flex-direction: column; position: absolute;
-                top: 70px; left: 0; width: 100%; background: var(--white);
-                padding: 30px 0; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-            }
-            .nav-links.active { display: flex; }
-            .nav-links li { margin: 15px 0; margin-left: 0; }
-            .fb-container { min-width: 100%; padding: 10px; }
+        .item-info { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .item-info h3 { color: var(--primary-blue); margin-bottom: 8px; font-size: 1.3rem; font-family: 'Montserrat'; }
+        .item-info p { font-size: 0.9rem; color: #64748b; line-height: 1.5; margin-bottom: 15px; }
+        .tag { display: inline-block; background: var(--bg-light); color: var(--primary-blue); padding: 4px 12px; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; align-self: flex-start; }
+
+        /* FB Section */
+        .fb-section { padding: 60px 8%; text-align: center; background: #eef2f3; }
+        .fb-container { 
+            background: white; padding: 15px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: 100%; max-width: 500px; margin: 0 auto; 
+            display: flex; justify-content: center; overflow: hidden;
         }
 
         /* Floating WhatsApp */
@@ -108,10 +101,26 @@
             z-index: 1001; display: flex; align-items: center; justify-content: center;
             text-decoration: none; transition: 0.3s;
         }
-        .whatsapp-float:hover { transform: scale(1.1); background: #20ba5a; }
 
-        .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 100px 5%; }
-        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 25px; transition: 0.3s; }
+        .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 80px 8%; }
+        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 20px; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 992px) {
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid { grid-template-columns: 1fr; padding: 40px 5%; }
+            nav { padding: 15px 5%; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none; flex-direction: column; position: absolute;
+                top: 70px; left: 0; width: 100%; background: var(--white);
+                padding: 20px 0; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { margin: 15px 0; margin-left: 0; }
+        }
     </style>
 </head>
 <body>
@@ -142,49 +151,56 @@
 
     <header class="portfolio-header">
         <h1>Creative Showcase</h1>
-        <p>High-impact branding, cinematic video projects, and professional documentation designed for excellence.</p>
+        <p>Explore high-impact branding, cinematic video projects, and professional documentation.</p>
     </header>
 
     <section class="portfolio-grid">
         <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Logo Detail</a></div>
             <div class="portfolio-img-container">
                 <img src="logo1.jpg" alt="Logo Design" class="portfolio-img">
             </div>
             <div class="item-info">
-                <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase;">Identity</span>
+                <span class="tag">Identity</span>
                 <h3>Modern Branding</h3>
-                <p>Sleek logo concepts designed to provide businesses with a professional and lasting market presence.</p>
-                <a href="#" style="color: var(--primary-blue); font-weight: 600; text-decoration: none; margin-top: auto;">Explore Project →</a>
+                <p>Sleek and professional logo concepts designed to give businesses a lasting identity.</p>
             </div>
         </div>
 
         <div class="portfolio-item">
+            <div class="item-overlay"><a href="#" class="overlay-btn">View Full Design</a></div>
             <div class="portfolio-img-container">
-                <img src="flyer1.jpg" alt="Flyer Design" class="portfolio-img">
+                <img src="flyer1.jpg" alt="Church Flyer" class="portfolio-img">
             </div>
             <div class="item-info">
-                <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase;">Graphics</span>
+                <span class="tag">Graphics</span>
                 <h3>Event Publicity</h3>
-                <p>Captivating flyer designs tailored for high engagement at community events and social campaigns.</p>
-                <a href="#" style="color: var(--primary-blue); font-weight: 600; text-decoration: none; margin-top: auto;">Explore Project →</a>
+                <p>Eye-catching flyer designs for church events and marketing campaigns.</p>
             </div>
         </div>
 
         <div class="portfolio-item">
+            <div class="item-overlay">
+                <a href="bethania-profile.pdf" download class="overlay-btn">
+                    <i class="fas fa-file-download"></i> Download PDF
+                </a>
+            </div>
             <div class="portfolio-img-container">
-                <img src="video-thumb.jpg" alt="Video Project" class="portfolio-img">
+                <img src="bethania-thumb.jpg" alt="Bethania Academy Profile" class="portfolio-img">
             </div>
             <div class="item-info">
-                <span style="font-size: 0.75rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase;">Cinematic</span>
-                <h3>Digital Storytelling</h3>
-                <p>Professional video editing and post-production for corporate profiles and social media marketing.</p>
-                <a href="#" style="color: var(--primary-blue); font-weight: 600; text-decoration: none; margin-top: auto;">Watch Reel →</a>
+                <span class="tag">Institutional</span>
+                <h3>Bethania Academy</h3>
+                <p>A comprehensive 12-page digital profile showcasing school excellence.</p>
+                <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.85rem; margin-top: auto;">
+                    <i class="fas fa-download"></i> Get PDF Copy
+                </a>
             </div>
         </div>
     </section>
 
     <section class="fb-section">
-        <h2 style="color: var(--primary-blue); margin-bottom: 10px; font-family: 'Montserrat';">Studio Updates</h2>
+        <h2 style="color: var(--primary-blue); margin-bottom: 10px; font-family: 'Montserrat';">Studio Activity</h2>
         <div class="fb-container">
             <div class="fb-page" 
                  data-href="https://www.facebook.com/profile.php?id=61578431138477" 
@@ -196,31 +212,21 @@
                  data-hide-cover="false" 
                  data-show-facepile="true">
                 <blockquote cite="https://www.facebook.com/profile.php?id=61578431138477" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/profile.php?id=61578431138477">Onyando Designs</a>
+                    <a href="https://www.facebook.com/profile.php?id=61578431138477">Georgex graphics</a>
                 </blockquote>
             </div>
         </div>
     </section>
 
     <section class="cta-footer">
-        <h2>Ready to Elevate Your Brand?</h2>
-        <p>Let's turn your ideas into a visual reality.</p>
-        <a href="https://wa.me/254728870061" class="btn-hire">Start Your Project</a>
+        <h2>Ready to start?</h2>
+        <a href="https://wa.me/254728870061" class="btn-hire">Start Your Project Today</a>
     </section>
 
     <script>
         function toggleMenu() {
             document.getElementById('navLinks').classList.toggle('active');
         }
-
-        // Re-calculate Facebook width on desktop window resize
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                if (window.FB) { FB.XFBML.parse(); }
-            }, 400);
-        });
     </script>
 </body>
 </html>
