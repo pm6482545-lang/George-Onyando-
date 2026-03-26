@@ -20,7 +20,7 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         img { max-width: 100%; height: auto; display: block; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.6; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; line-height: 1.4; }
 
         /* Navigation */
         nav {
@@ -45,27 +45,27 @@
         .portfolio-header {
             background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('headteacher.jpg');
             background-size: cover; background-position: center; background-attachment: fixed;
-            color: var(--white); padding: 80px 5%; text-align: center;
+            color: var(--white); padding: 60px 5%; text-align: center;
         }
         .portfolio-header h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 5vw, 3rem); margin-bottom: 10px; }
         .portfolio-header p { font-size: 1rem; opacity: 0.9; max-width: 650px; margin: 0 auto; font-weight: 300; }
 
-        /* Portfolio Grid - Adaptive Logic */
-        .portfolio-section { padding: 60px 5%; }
+        /* Portfolio Grid - LANDSCAPE 2-COLUMN MOBILE */
+        .portfolio-section { padding: 30px 3%; }
         .portfolio-grid {
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-adjusts based on screen width */
-            gap: 25px; max-width: 1200px; margin: 0 auto;
+            /* Forces 2 columns on small screens */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 12px; max-width: 1400px; margin: 0 auto;
         }
         
         .portfolio-item {
-            background: var(--white); border-radius: 15px; overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: 0.3s ease; position: relative;
+            background: var(--white); border-radius: 12px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s ease; position: relative;
             display: flex; flex-direction: column; height: 100%;
         }
-        .portfolio-item:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
-        .portfolio-img-container { position: relative; height: 230px; overflow: hidden; background: #e2e8f0; }
+        .portfolio-img-container { position: relative; height: 150px; overflow: hidden; background: #e2e8f0; }
         .portfolio-img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         
         /* Overlays */
@@ -75,23 +75,23 @@
             justify-content: center; opacity: 0; transition: 0.3s; z-index: 2;
         }
         .portfolio-img-container:hover .item-overlay { opacity: 1; }
-        .overlay-btn { color: var(--white); font-size: 0.85rem; text-decoration: none; border: 2px solid var(--accent-gold); padding: 8px 18px; border-radius: 50px; font-weight: 600; }
+        .overlay-btn { color: var(--white); font-size: 0.7rem; text-decoration: none; border: 1.5px solid var(--accent-gold); padding: 5px 10px; border-radius: 50px; font-weight: 600; }
 
-        .item-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .item-info h3 { color: var(--primary-blue); margin-bottom: 8px; font-size: 1.2rem; font-family: 'Montserrat'; }
-        .item-info p { font-size: 0.9rem; color: #475569; margin-bottom: 15px; }
-        .tag { display: inline-block; background: #f1f5f9; color: var(--primary-blue); padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; margin-bottom: 8px; text-transform: uppercase; align-self: flex-start; }
+        .item-info { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; }
+        .item-info h3 { color: var(--primary-blue); margin-bottom: 5px; font-size: 0.95rem; font-family: 'Montserrat'; }
+        .item-info p { font-size: 0.75rem; color: #475569; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .tag { display: inline-block; background: #f1f5f9; color: var(--primary-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.6rem; font-weight: 700; margin-bottom: 5px; text-transform: uppercase; align-self: flex-start; }
 
         /* FB Section */
-        .fb-section { padding: 50px 5%; text-align: center; background: #eef2f3; }
+        .fb-section { padding: 40px 5%; text-align: center; background: #eef2f3; }
         .fb-container { 
             background: white; padding: 10px; border-radius: 15px; 
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            width: 100%; max-width: 500px; margin: 0 auto; 
+            width: 100%; max-width: 800px; margin: 0 auto; 
             overflow: hidden; display: flex; justify-content: center;
         }
 
-        /* WhatsApp Floating */
+        /* Floating WhatsApp */
         .whatsapp-float {
             position: fixed; width: 55px; height: 55px; bottom: 25px; right: 25px;
             background-color: var(--whatsapp-green); color: #FFF; border-radius: 50px;
@@ -101,10 +101,18 @@
         }
 
         .cta-footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 60px 5%; }
-        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; transition: 0.3s; }
-        .btn-hire:hover { transform: scale(1.05); }
+        .btn-hire { background: var(--accent-gold); color: var(--primary-blue); padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 15px; }
 
-        /* Mobile Adjustments */
+        /* Desktop Adjustment */
+        @media (min-width: 992px) {
+            .portfolio-grid { grid-template-columns: repeat(3, 1fr); gap: 25px; }
+            .portfolio-img-container { height: 230px; }
+            .item-info h3 { font-size: 1.2rem; }
+            .item-info p { font-size: 0.9rem; -webkit-line-clamp: 3; }
+            .overlay-btn { font-size: 0.85rem; padding: 8px 18px; }
+        }
+
+        /* Mobile Menu */
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
             .nav-links {
@@ -114,7 +122,6 @@
             }
             .nav-links.active { display: flex; }
             .nav-links li { margin: 12px 0; margin-left: 0; }
-            .portfolio-header { padding: 60px 5%; }
         }
     </style>
 </head>
@@ -186,8 +193,8 @@
                     <span class="tag">Institutional</span>
                     <h3>Bethania Academy</h3>
                     <p>Detailed digital profile design showcasing academic performance and school facilities.</p>
-                    <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.8rem; margin-top: auto;">
-                        <i class="fas fa-file-pdf"></i> Get Profile Copy
+                    <a href="bethania-profile.pdf" download style="color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.75rem; margin-top: auto;">
+                        <i class="fas fa-file-pdf"></i> Get PDF
                     </a>
                 </div>
             </div>
